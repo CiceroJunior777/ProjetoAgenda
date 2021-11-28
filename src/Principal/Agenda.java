@@ -15,9 +15,8 @@ import java.awt.Toolkit;
  */
 public class Agenda extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Agenda
-     */
+    TelaCompromisso compromisso = new TelaCompromisso();
+
     public Agenda() {
         initComponents();
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -37,6 +36,8 @@ public class Agenda extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jFechar = new javax.swing.JButton();
+        jMinimizar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -45,11 +46,38 @@ public class Agenda extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jFechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Fechar.png"))); // NOI18N
+        jFechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/fechajanela.png"))); // NOI18N
         jFechar.setToolTipText("Fechar");
         jFechar.setBorder(null);
         jFechar.setContentAreaFilled(false);
-        jPanel1.add(jFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 20, -1, -1));
+        jFechar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jFechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFecharActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(713, 20, 40, 40));
+
+        jMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Minimizar.png"))); // NOI18N
+        jMinimizar.setBorder(null);
+        jMinimizar.setContentAreaFilled(false);
+        jMinimizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMinimizarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 20, 50, 40));
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/addCompromisso.png"))); // NOI18N
+        jButton1.setToolTipText("Novo Compromisso");
+        jButton1.setBorder(null);
+        jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 20, 50, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/principal.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -58,6 +86,18 @@ public class Agenda extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFecharActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jFecharActionPerformed
+
+    private void jMinimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMinimizarActionPerformed
+        setExtendedState(ICONIFIED);
+    }//GEN-LAST:event_jMinimizarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        compromisso.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -95,8 +135,10 @@ public class Agenda extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jFechar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jMinimizar;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
